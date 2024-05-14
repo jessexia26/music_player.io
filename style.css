@@ -32,7 +32,6 @@ html, body {
   background-color: black; /* 背景颜色 */
   padding: 10px;     /* 内边距 */
   border: 1px solid white;
-  border-radius: 5px; /* 圆角边框 */
   font-size: 14px;   /* 字体大小 */
   color: white;      /* 字体颜色 */
   z-index: 1000;     /* z-index确保它在页面上其他元素之上 */
