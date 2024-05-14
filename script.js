@@ -173,7 +173,12 @@
     //   analyser.smoothingTimeConstant = 0.5
     source = null;
     audio = new Audio();
-    audio.src = "./music/橘色星球.mp3";
+    if (params.songArr == null){
+      audio.src = "./music/橘色星球.mp3";     
+    } else {
+      audio.src = params.songArr;
+    }
+
     audio.load();
     return audio.addEventListener('canplay', function() {
       var bufferLength;
