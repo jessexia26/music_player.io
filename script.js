@@ -109,7 +109,6 @@
       return;
     }
     initAudio();
-    audio.load();
     message.css("cursor", "default");
     if (canplay) {
       message.hide();
@@ -174,7 +173,7 @@
     //   analyser.smoothingTimeConstant = 0.5
     source = null;
     audio = new Audio();
-    audio.src = params.songArr;
+    audio.src = "./music/橘色星球.mp3";
     audio.load();
     return audio.addEventListener('canplay', function() {
       var bufferLength;
