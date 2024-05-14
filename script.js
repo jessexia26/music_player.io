@@ -126,6 +126,9 @@
     // if window.innerWidth < 500
     gui.close();
     songController = gui.add(params,'song', songsNames);
+    songController.onChange(function(value) {
+      return changeSong(params.song);
+    });
     modeController = gui.add(params, 'mode', modes);
     modeController.onChange(function(value) {
       return changeMode(value);
