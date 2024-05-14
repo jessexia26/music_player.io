@@ -176,6 +176,8 @@
     audio = new Audio();
     audio.crossOrigin = "anonymous";
     audio.src = params.songArr;
+    audio.load()
+    canplay = true;
     return audio.addEventListener('canplay', function() {
       var bufferLength;
       if (isPlaying) {
