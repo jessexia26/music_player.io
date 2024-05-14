@@ -105,6 +105,22 @@
     mousePt.y = cp.y;
     $(window).resize(resize);
     startAnimation();
+      // 添加暂停和播放按钮的事件监听器
+      document.getElementById('pauseButton').addEventListener('click', function() {
+        if (!audio.paused) {
+            audio.pause();
+            isPlaying = false;
+            console.log("音乐已暂停");
+        }
+    });
+
+    document.getElementById('playButton').addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            isPlaying = true;
+            console.log("音乐继续播放");
+        }
+    });
     return initGUI();
   };
 

@@ -25,6 +25,18 @@ html, body {
   height: 92px;
 }
 
+#audioControls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+#audioControls button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
 #info-box {
   position: fixed;   /* 固定定位，相对于视口 */
   left: 10px;        /* 距离屏幕左边10像素 */
