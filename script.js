@@ -151,7 +151,7 @@
     audio.pause();
     audio.currentTime = 0; // 重置音频播放位置为开始
     isPlaying = false;
-    message.show().html("CLICK TO PLAY MUSIC");
+    message.show().html("点击播放音乐");
     message.css("cursor", "pointer");
   };
   changeSong = function(newTrack) {
@@ -164,7 +164,8 @@
     audio.src = newTrackURL; // 设置新的音乐文件路径
     audio.load(); // 重新加载音频文件
     canplay = true; // 重置准备播放的状态
-    message.show().html("LOADING MUSIC...");
+    message.show().html("点击播放新音乐");
+    message.css("cursor", "pointer");
   };
   initAudio = function() {
     var context, source;
