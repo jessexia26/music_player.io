@@ -45,7 +45,8 @@
     sizeH: 1,
     radiusParticle: 60,
     themeArr: themes[this.theme],
-    song: songs[0]
+    song: songs[0],
+    songArr: songs[this.theme]
   };
 
   TOTAL_BANDS = 256;
@@ -300,7 +301,9 @@
     message.show().html("CLICK TO PLAY MUSIC");
     message.css("cursor", "pointer");
   };
-  changeSong = function(newTrackURL) {
+  changeSong = function(newTrack) {
+    params.songArr = songs[newTrack];
+    newTrackURL = params.songArr;
     if (isPlaying) {
       stop(); // 停止当前播放的音乐
     }
