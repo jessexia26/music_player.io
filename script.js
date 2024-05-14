@@ -1,7 +1,7 @@
 (function() {
   var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, update, v, windowH, windowW;
 
-  AUDIO_URL = "https://ma77os-media-assets.s3.us-east-2.amazonaws.com/audio/paradise_circus.mp3";
+  AUDIO_URL = "./music/bgm.mp3";
 
   modes = ["cubic", "conic"];
 
