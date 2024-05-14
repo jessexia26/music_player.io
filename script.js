@@ -121,6 +121,7 @@
       if (audio.paused) {
           audio.play();
           isPlaying = true;
+          message.hide()
           console.log("音乐正在播放");
       }
   };
