@@ -45,11 +45,11 @@ html, body {
 }
 #info-box {
   position: fixed;   /* 固定定位，相对于视口 */
-  left: 10px;        /* 距离屏幕左边10像素 */
-  bottom: 10px;      /* 距离屏幕底部10像素 */
+  left: 0px;        /* 距离屏幕左边10像素 */
+  top: 65px;      /* 距离屏幕底部10像素 */
   background-color: black; /* 背景颜色 */
   padding: 10px;     /* 内边距 */
-  border: 1px solid white;
+  /*border: 1px solid white; */
   font-size: 14px;   /* 字体大小 */
   color: white;      /* 字体颜色 */
   z-index: 1000;     /* z-index确保它在页面上其他元素之上 */
