@@ -114,7 +114,7 @@
     if (canplay) {
       message.hide();
     } else {
-      message.html("LOADING MUSIC...");
+      message.html("加载音乐中...");
     }
     audio.play();
     return isPlaying = true;
