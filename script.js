@@ -1,7 +1,18 @@
 (function() {
-  var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, update, v, windowH, windowW;
+  var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
+  songs = {
+      "折梦影": "./music/折梦影.mp3",
+      "橘色星球": "./music/橘色星球.mp3",
+      "良宵异彩": "./music/良宵异彩.mp3",
+      "碧空澈明": "./music/碧空澈明s.mp3",
+  };
+  songsNames = [];
 
-  AUDIO_URL = "./music/bgm.mp3";
+  for (k in songs) {
+    v = songs[k];
+    songsNames.push(k);
+  }
+  AUDIO_URL = "./music/良宵异彩.mp3";
 
   modes = ["cubic", "conic"];
 
@@ -33,7 +44,8 @@
     sizeW: 1,
     sizeH: 1,
     radiusParticle: 60,
-    themeArr: themes[this.theme]
+    themeArr: themes[this.theme],
+    song: songs[0]
   };
 
   TOTAL_BANDS = 256;
@@ -108,10 +120,14 @@
   };
 
   initGUI = function() {
-    var modeController, sizeController, themeController;
+    var modeController, sizeController, themeController, songController;
     gui = new dat.GUI();
     // if window.innerWidth < 500
     gui.close();
+    songController = gui.add(params,'song', songs);
+    songController.onChange(function(value) {
+      return changeSong(params.theme);
+    });
     modeController = gui.add(params, 'mode', modes);
     modeController.onChange(function(value) {
       return changeMode(value);
@@ -274,7 +290,25 @@
     }
     return results;
   };
-
+  stop = function() {
+    if (!isPlaying) {
+      return;
+    }
+    audio.pause();
+    audio.currentTime = 0; // 重置音频播放位置为开始
+    isPlaying = false;
+    message.show().html("CLICK TO PLAY MUSIC");
+    message.css("cursor", "pointer");
+  };
+  changeSong = function(newTrackURL) {
+    if (isPlaying) {
+      stop(); // 停止当前播放的音乐
+    }
+    audio.src = newTrackURL; // 设置新的音乐文件路径
+    audio.load(); // 重新加载音频文件
+    canplay = false; // 重置准备播放的状态
+    message.show().html("LOADING MUSIC...");
+  };
   update = function() {
     var a, angle, circle, dist, dx, dy, i, j, n, r, ref, scale, t, xpos, ypos;
     requestAnimFrame(update);
