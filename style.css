@@ -35,6 +35,12 @@ html, body {
 #audioControls button {
   padding: 5px 10px;
   margin-right: 5px;
+  background-color: black; /* 背景颜色 */
+  padding: 10px;     /* 内边距 */
+  border: 1px solid white;
+  font-size: 14px;   /* 字体大小 */
+  color: white;      /* 字体颜色 */
+  z-index: 1000;     /* z-index确保它在页面上其他元素之上 */
   cursor: pointer;
 }
 #info-box {

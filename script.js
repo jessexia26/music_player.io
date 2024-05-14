@@ -106,8 +106,6 @@
     $(window).resize(resize);
     startAnimation();
     initGUI();
-    document.getElementById('pauseButton').addEventListener('click', stopMusic);
-    document.getElementById('playButton').addEventListener('click', playMusic);
   };
   function stopMusic() {
     if (!audio.paused) {
@@ -381,6 +379,8 @@
   };
 
   init();
+  document.getElementById('pauseButton').addEventListener('click', stopMusic);
+  document.getElementById('playButton').addEventListener('click', playMusic);
 
 }).call(this);
 
