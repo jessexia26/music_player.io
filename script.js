@@ -37,7 +37,6 @@
     mode: modes[0],
     theme: themesNames[0],
     song: songs[0],
-    songArr: songs[this.song],
     radius: 3,
     distance: 600,
     size: .5,
@@ -47,6 +46,7 @@
     sizeH: 1,
     radiusParticle: 60,
     themeArr: themes[this.theme],
+    songArr: songs[this.song]
   };
 
   TOTAL_BANDS = 256;
