@@ -105,23 +105,26 @@
     mousePt.y = cp.y;
     $(window).resize(resize);
     startAnimation();
-    // 添加暂停和播放按钮的事件监听器
-    document.getElementById('pauseButton').addEventListener('click', function() {
-      if (!audio.paused) {
-          audio.pause();
-          isPlaying = false;
-          console.log("音乐已暂停");
-      }
-  });
+    initGUI();
+    document.getElementById('pauseButton').addEventListener('click', stopMusic);
+    document.getElementById('playButton').addEventListener('click', playMusic);
+  };
+  function stopMusic() {
+    if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;  // 重置音频到开始位置
+        isPlaying = false;
+        console.log("音乐已停止");
+    }
+};
 
-  document.getElementById('playButton').addEventListener('click', function() {
+  // 播放音乐函数
+  function playMusic() {
       if (audio.paused) {
           audio.play();
           isPlaying = true;
-          console.log("音乐继续播放");
+          console.log("音乐正在播放");
       }
-  });
-    return initGUI();
   };
 
   play = function() {
