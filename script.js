@@ -127,7 +127,7 @@
     gui.close();
     songController = gui.add(params,'song', songs);
     songController.onChange(function(value) {
-      return changeSong(params.theme);
+      return changeSong(params.song);
     });
     modeController = gui.add(params, 'mode', modes);
     modeController.onChange(function(value) {
