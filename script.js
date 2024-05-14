@@ -1,5 +1,5 @@
 (function() {
-  var TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
+  var TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, currentIndex, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
   songs = {
       "橘色星球": "./music/橘色星球.mp3",
       "折梦影": "./music/折梦影.mp3",
@@ -30,7 +30,7 @@
     themesNames.push(k);
   }
 
-  obj = document.getElementById("audio");
+  currentIndex = songsNames.indexOf(params.song);
   
   // PARAMETERS
   params = {
@@ -116,7 +116,16 @@
         console.log("音乐已停止");
     }
 };
-
+  function playNextSong() {
+    currentIndex = (currentIndex + 1) % songsNames.length;  // 更新索引到下一首歌
+    params.song = songsNames[currentIndex];  // 更新当前歌曲名称
+    params.songArr = songs[params.song];     // 获取下一首歌的URL
+    audio.src = params.songArr;              // 设置音频源
+    audio.load();                            // 加载新的音源
+    audio.play();                            // 播放音乐
+    isPlaying = true;
+    console.log("现在播放：", params.song);  // 控制台输出当前播放的歌曲名
+  }
   // 播放音乐函数
   function playMusic() {
       if (audio.paused) {
@@ -383,6 +392,7 @@
   init();
   document.getElementById('pauseButton').addEventListener('click', pauseMusic);
   document.getElementById('playButton').addEventListener('click', playMusic);
+  document.getElementById('nextButton').addEventListener('click', playNextSong);
 
 }).call(this);
 
