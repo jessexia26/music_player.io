@@ -1,10 +1,10 @@
 (function() {
-  var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
+  var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
   songs = {
       "折梦影": "./music/折梦影.mp3",
       "橘色星球": "./music/橘色星球.mp3",
       "良宵异彩": "./music/良宵异彩.mp3",
-      "碧空澈明": "./music/碧空澈明s.mp3",
+      "碧空澈明": "./music/碧空澈明.mp3",
   };
   songsNames = [];
 
@@ -306,6 +306,7 @@
     newTrackURL = params.songArr;
     if (isPlaying) {
       stop(); // 停止当前播放的音乐
+      message.hide();
     }
     audio.src = newTrackURL; // 设置新的音乐文件路径
     audio.load(); // 重新加载音频文件
