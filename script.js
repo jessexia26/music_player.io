@@ -173,7 +173,7 @@
     //   analyser.smoothingTimeConstant = 0.5
     source = null;
     audio = new Audio();
-    audio.crossOrigin = "anonymous";
+    audio.load();
     audio.src = params.songArr;
     return audio.addEventListener('canplay', function() {
       var bufferLength;
