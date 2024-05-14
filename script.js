@@ -44,8 +44,12 @@
     sizeW: 1,
     sizeH: 1,
     radiusParticle: 60,
-    themeArr: themes[this.theme],
-    songArr: songs[this.song]
+    get themeArr() {
+      return themes[this.theme];
+  },
+    get songArr() {
+      return songs[this.song];
+  }
   };
 
   TOTAL_BANDS = 256;
@@ -174,7 +178,7 @@
     source = null;
     audio = new Audio();
     if (params.songArr == null){
-      audio.src = "./music/橘色星球.mp3";     
+      audio.src = params.songArr; //songs[params.song];     
     } else {
       audio.src = params.songArr;
     }
