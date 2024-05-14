@@ -30,6 +30,8 @@
     themesNames.push(k);
   }
 
+  obj = document.getElementById("audio");
+  
   // PARAMETERS
   params = {
     // public
@@ -110,7 +112,6 @@
   function stopMusic() {
     if (!audio.paused) {
         audio.pause();
-        audio.currentTime = 0;  // 重置音频到开始位置
         isPlaying = false;
         console.log("音乐已停止");
     }
