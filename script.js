@@ -1,5 +1,5 @@
 (function() {
-  var AUDIO_URL, TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
+  var TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
   songs = {
       "折梦影": "./music/折梦影.mp3",
       "橘色星球": "./music/橘色星球.mp3",
@@ -12,7 +12,6 @@
     v = songs[k];
     songsNames.push(k);
   }
-  AUDIO_URL = "./music/良宵异彩.mp3";
 
   modes = ["cubic", "conic"];
 
