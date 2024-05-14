@@ -144,7 +144,28 @@
       return resize(value);
     });
   };
-
+  stop = function() {
+    if (!isPlaying) {
+      return;
+    }
+    audio.pause();
+    audio.currentTime = 0; // 重置音频播放位置为开始
+    isPlaying = false;
+    message.show().html("CLICK TO PLAY MUSIC");
+    message.css("cursor", "pointer");
+  };
+  changeSong = function(newTrack) {
+    params.songArr = songs[newTrack];
+    newTrackURL = params.songArr;
+    if (isPlaying) {
+      stop(); // 停止当前播放的音乐
+      message.hide();
+    }
+    audio.src = newTrackURL; // 设置新的音乐文件路径
+    audio.load(); // 重新加载音频文件
+    canplay = true; // 重置准备播放的状态
+    message.show().html("LOADING MUSIC...");
+  };
   initAudio = function() {
     var context, source;
     context = new (window.AudioContext || window.webkitAudioContext)();
@@ -291,28 +312,7 @@
     }
     return results;
   };
-  stop = function() {
-    if (!isPlaying) {
-      return;
-    }
-    audio.pause();
-    audio.currentTime = 0; // 重置音频播放位置为开始
-    isPlaying = false;
-    message.show().html("CLICK TO PLAY MUSIC");
-    message.css("cursor", "pointer");
-  };
-  changeSong = function(newTrack) {
-    params.songArr = songs[newTrack];
-    newTrackURL = params.songArr;
-    if (isPlaying) {
-      stop(); // 停止当前播放的音乐
-      message.hide();
-    }
-    audio.src = newTrackURL; // 设置新的音乐文件路径
-    audio.load(); // 重新加载音频文件
-    canplay = false; // 重置准备播放的状态
-    message.show().html("LOADING MUSIC...");
-  };
+
   update = function() {
     var a, angle, circle, dist, dx, dy, i, j, n, r, ref, scale, t, xpos, ypos;
     requestAnimFrame(update);
