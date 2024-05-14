@@ -30,7 +30,6 @@
     themesNames.push(k);
   }
 
-  currentIndex = songsNames.indexOf(params.song);
   
   // PARAMETERS
   params = {
@@ -117,6 +116,7 @@
     }
 };
   function playNextSong() {
+    var currentIndex = songsNames.indexOf(params.song);
     currentIndex = (currentIndex + 1) % songsNames.length;  // 更新索引到下一首歌
     params.song = songsNames[currentIndex];  // 更新当前歌曲名称
     params.songArr = songs[params.song];     // 获取下一首歌的URL
