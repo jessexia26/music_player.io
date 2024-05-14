@@ -109,6 +109,7 @@
       return;
     }
     initAudio();
+    audio.load();
     message.css("cursor", "default");
     if (canplay) {
       message.hide();
