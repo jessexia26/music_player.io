@@ -36,7 +36,7 @@
     // public
     mode: modes[0],
     theme: themesNames[0],
-    song: songs[0],
+    song: songsNames[0],
     radius: 3,
     distance: 600,
     size: .5,
@@ -125,7 +125,7 @@
     gui = new dat.GUI();
     // if window.innerWidth < 500
     gui.close();
-    songController = gui.add(params,'song', songs);
+    songController = gui.add(params,'song', songsNames);
     songController.onChange(function(value) {
       return changeSong(params.song);
     });
