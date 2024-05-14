@@ -29,12 +29,12 @@ html, body {
   position: fixed;   /* 固定定位，相对于视口 */
   left: 10px;        /* 距离屏幕左边10像素 */
   bottom: 10px;      /* 距离屏幕底部10像素 */
-  background-color: white; /* 背景颜色 */
+  background-color: black; /* 背景颜色 */
   padding: 10px;     /* 内边距 */
-  border: 1px solid black; /* 边框 */
+  border: 1px solid white;
   border-radius: 5px; /* 圆角边框 */
   font-size: 14px;   /* 字体大小 */
-  color: black;      /* 字体颜色 */
+  color: white;      /* 字体颜色 */
   z-index: 1000;     /* z-index确保它在页面上其他元素之上 */
 }
 a:link, a:hover, a:visited, a:active{
