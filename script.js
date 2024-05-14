@@ -36,6 +36,8 @@
     // public
     mode: modes[0],
     theme: themesNames[0],
+    song: songs[0],
+    songArr: songs[this.song],
     radius: 3,
     distance: 600,
     size: .5,
@@ -45,8 +47,6 @@
     sizeH: 1,
     radiusParticle: 60,
     themeArr: themes[this.theme],
-    song: songs[0],
-    songArr: songs[this.theme]
   };
 
   TOTAL_BANDS = 256;
@@ -153,7 +153,7 @@
     source = null;
     audio = new Audio();
     audio.crossOrigin = "anonymous";
-    audio.src = AUDIO_URL;
+    audio.src = params.songArr;
     return audio.addEventListener('canplay', function() {
       var bufferLength;
       if (isPlaying) {
