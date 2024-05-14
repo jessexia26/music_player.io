@@ -1,10 +1,10 @@
 (function() {
   var TOTAL_BANDS, analyser, analyserDataArray, arrCircles, audio, build, buildCircles, canplay, changeSong,changeMode, changeTheme, circlesContainer, cp, createCircleTex, gui, hammertime, init, initAudio, initGUI, initGestures, isPlaying, k, message, modes, mousePt, mouseX, mouseY, params, play, renderer, resize, stage, startAnimation, texCircle, themes, themesNames, songs, songsNames,update, v, windowH, windowW;
   songs = {
-      "折梦影": "./music/折梦影.mp3",
       "橘色星球": "./music/橘色星球.mp3",
+      "折梦影": "./music/折梦影.mp3",
       "良宵异彩": "./music/良宵异彩.mp3",
-      "碧空澈明": "./music/碧空澈明.mp3",
+      "碧空澈明": "./music/碧空澈明.mp3"
   };
   songsNames = [];
 
@@ -173,8 +173,8 @@
     //   analyser.smoothingTimeConstant = 0.5
     source = null;
     audio = new Audio();
-    audio.load();
     audio.src = params.songArr;
+    audio.load();
     return audio.addEventListener('canplay', function() {
       var bufferLength;
       if (isPlaying) {
